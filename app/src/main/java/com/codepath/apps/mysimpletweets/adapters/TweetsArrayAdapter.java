@@ -33,6 +33,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
         TextView tvRetweeter;
         TextView tvRetweets;
         TextView tvFavorites;
+        ImageView ivRetweetTop;
         ImageView ivProfileImage;
     }
 
@@ -64,6 +65,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
             viewHolder.tvRetweeter = (TextView) convertView.findViewById(R.id.tvRetweeter);
             viewHolder.tvFavorites = (TextView) convertView.findViewById(R.id.tvFavorites);
             viewHolder.tvRetweets = (TextView) convertView.findViewById(R.id.tvRetweets);
+            viewHolder.ivRetweetTop = (ImageView) convertView.findViewById(R.id.ivRetweetTop);
 
             convertView.setTag(viewHolder);
         } else {
@@ -112,8 +114,10 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
         if (tweet.getRetweetingUser() != null) {
             viewHolder.tvRetweeter.setText(tweet.getRetweetingUser().getName() + " retweeted");
             viewHolder.tvRetweeter.setVisibility(View.VISIBLE);
+            viewHolder.ivRetweetTop.setVisibility(View.VISIBLE);
         } else {
             viewHolder.tvRetweeter.setVisibility(View.GONE);
+            viewHolder.ivRetweetTop.setVisibility(View.GONE);
         }
         viewHolder.tvBody.setText(tweet.getBody());
         viewHolder.tvName.setText(tweet.getUser().getName());

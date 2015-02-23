@@ -45,6 +45,7 @@ public class DetailActivity extends ActionBarActivity {
         TextView tvName = (TextView) findViewById(R.id.tvName);
         TextView tvFavorites = (TextView) findViewById(R.id.tvFavorites);
         TextView tvRetweets = (TextView) findViewById(R.id.tvRetweets);
+        ImageView ivRetweetTop = (ImageView) findViewById(R.id.ivRetweetTop);
         ImageView ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
         TextView tvRetweeter = (TextView) findViewById(R.id.tvRetweeter);
 
@@ -73,8 +74,10 @@ public class DetailActivity extends ActionBarActivity {
         if (tweet.getRetweetingUser() != null) {
             tvRetweeter.setText(tweet.getRetweetingUser().getName() + " retweeted");
             tvRetweeter.setVisibility(View.VISIBLE);
+            ivRetweetTop.setVisibility(View.VISIBLE);
         } else {
             tvRetweeter.setVisibility(View.GONE);
+            ivRetweetTop.setVisibility(View.GONE);
         }
 
         if (tweet.getRetweetCount() > 0) {
