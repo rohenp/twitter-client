@@ -1,0 +1,5 @@
+<menu
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codepath.apps.mysimpletweets.activities.DetailActivity">
+</menu>
+<!-- From: file:/Users/rohen/Code/twitter_client/app/src/main/res/menu/menu_detail.xml -->

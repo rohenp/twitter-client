@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/rohen/Code/twitter_client/app/libs/scribe-codepath-0.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a580d06de954001f787e8d024bfcf931fe30bdda">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/scribe-codepath-0.0.3-37ca511ae755db40e2eb09580d8bd7c5b8517abb.jar" />
+    </item>
+    <item
+        jar="/Users/rohen/Code/twitter_client/app/libs/codepath-oauth-0.4.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e2bf2d92cfe90d44287c510d955d0c979631e99e">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/codepath-oauth-0.4.1-500f237f656b7f6d7a2e05c3744d5f5094451ffc.jar" />
+    </item>
+    <item
+        jar="/Users/rohen/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.4.0/f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2/picasso-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/picasso-2.4.0-7a653381be9ce78607fc6fde1d229a661aada59a.jar" />
+    </item>
+    <item
+        jar="/Users/rohen/Code/twitter_client/app/libs/codepath-utils.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="10901a5ef726eacf1b2443b7f38dc4cc9cd3f7d4">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/codepath-utils-b8cb3b43febf35734ed07fd3019fed95f11965d3.jar" />
+    </item>
+    <item
+        jar="/Users/rohen/Code/twitter_client/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/classes-d1798c339151d03775927b9ce639f1f24025c702.jar" />
+    </item>
+    <item
+        jar="/Users/rohen/Code/twitter_client/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/classes-db435a79e6b5a2698167753ec7d0689402094fe0.jar" />
+    </item>
+    <item
+        jar="/Users/rohen/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-3bc19fffc74ffda12ee1329f7d32106ccfbc5319.jar" />
+    </item>
+    <item
+        jar="/Users/rohen/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-2b76698c1bdec03d73414b44cb998602b575e850.jar" />
+    </item>
+    <item
+        jar="/Users/rohen/Code/twitter_client/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-bdea52aee39065109d8b2f3c96a243140cf55b94.jar" />
+    </item>
+    <item
+        jar="/Users/rohen/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08/activeandroid-3.1.0-SNAPSHOT.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/activeandroid-3.1.0-SNAPSHOT-0bcdb8554b33931e8941ee495245b71e63290daa.jar" />
+    </item>
+
+</items>

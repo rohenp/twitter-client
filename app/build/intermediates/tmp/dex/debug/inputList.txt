@@ -1,0 +1,11 @@
+/Users/rohen/Code/twitter_client/app/build/intermediates/classes/debug
+/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-3bc19fffc74ffda12ee1329f7d32106ccfbc5319.jar
+/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/codepath-utils-b8cb3b43febf35734ed07fd3019fed95f11965d3.jar
+/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/codepath-oauth-0.4.1-500f237f656b7f6d7a2e05c3744d5f5094451ffc.jar
+/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/activeandroid-3.1.0-SNAPSHOT-0bcdb8554b33931e8941ee495245b71e63290daa.jar
+/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/scribe-codepath-0.0.3-37ca511ae755db40e2eb09580d8bd7c5b8517abb.jar
+/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-2b76698c1bdec03d73414b44cb998602b575e850.jar
+/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/picasso-2.4.0-7a653381be9ce78607fc6fde1d229a661aada59a.jar
+/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-bdea52aee39065109d8b2f3c96a243140cf55b94.jar
+/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/classes-db435a79e6b5a2698167753ec7d0689402094fe0.jar
+/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/classes-d1798c339151d03775927b9ce639f1f24025c702.jar
