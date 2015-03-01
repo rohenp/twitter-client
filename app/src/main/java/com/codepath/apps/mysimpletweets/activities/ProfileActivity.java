@@ -65,9 +65,10 @@ public class ProfileActivity extends ActionBarActivity implements CustomAlertDia
 
         if (user != null) {
             populateUser(user);
-        } else {
-            getUser();
         }
+
+        // Refresh the user anyway, but do it after so the network call doesn't cause any lag
+        getUser();
     }
 
     private void getUser() {
