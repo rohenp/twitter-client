@@ -28,7 +28,6 @@
         <meta-data
             android:name="AA_DB_VERSION"
             android:value="1" />
-
         <meta-data
             android:name="AA_MODELS"
             android:value=".models.User, .models.Tweet" />
@@ -61,6 +60,10 @@
         <activity
             android:name=".activities.DetailActivity"
             android:label="@string/title_activity_detail" >
+        </activity>
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:label="@string/title_activity_profile" >
         </activity>
     </application>
 

@@ -1,6 +1,7 @@
 package com.codepath.apps.mysimpletweets.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codepath.apps.mysimpletweets.R;
+import com.codepath.apps.mysimpletweets.activities.ProfileActivity;
 import com.codepath.apps.mysimpletweets.models.Tweet;
 import com.squareup.picasso.Picasso;
 
 import java.sql.Timestamp;
+import java.text.FieldPosition;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,16 +46,16 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Tweet tweet = getItem(position);
+        final Tweet tweet = getItem(position);
         ViewHolder viewHolder;
-        Long resolution;
+        Long resolution = null;
         Long timeDiff;
         Timestamp timestamp = null;
         Long now = System.currentTimeMillis();
         String relativeTimeString;
         String timeValue;
         String resolutionString;
-        Date parsedDate;
+        Date parsedDate = null;
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_tweet, parent, false);
@@ -82,7 +85,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
             e.printStackTrace();
         }
 
-        if (timestamp != null) {
+        if (parsedDate != null) {
             timeDiff = now - timestamp.getTime();
 
             if (timeDiff < minute) {
@@ -94,19 +97,31 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
             } else if (timeDiff < day) {
                 resolution = DateUtils.HOUR_IN_MILLIS;
                 resolutionString = "h";
-            } else {
+            } else if (timeDiff < 14 * day) {
                 resolution = DateUtils.DAY_IN_MILLIS;
                 resolutionString = "d";
-            }
-
-            relativeTimeString = DateUtils.getRelativeTimeSpanString(timestamp.getTime(), now, resolution).toString();
-
-            if (relativeTimeString.equals("Yesterday")) {
-                timeValue = "1";
             } else {
-                timeValue = relativeTimeString.split(" ")[0];
+                resolutionString = "date";
             }
-            viewHolder.tvTime.setText(timeValue + resolutionString);
+
+            if (resolutionString.equals("date")) {
+                SimpleDateFormat outFormat = new SimpleDateFormat("M/d/yy", Locale.US);
+                String formattedTime = outFormat.format(parsedDate, new StringBuffer(), new FieldPosition(0)).toString();
+
+                viewHolder.tvTime.setText(formattedTime);
+            } else if (resolution != null) {
+                relativeTimeString = DateUtils.getRelativeTimeSpanString(timestamp.getTime(), now, resolution).toString();
+
+                if (relativeTimeString.equals("Yesterday")) {
+                    timeValue = "1";
+                } else if (relativeTimeString.equals("in 0 seconds")) {
+                    timeValue = "0";
+                } else {
+                    timeValue = relativeTimeString.split(" ")[0];
+                }
+
+                viewHolder.tvTime.setText(timeValue + resolutionString);
+            }
         } else {
             viewHolder.tvTime.setText("");
         }
@@ -123,6 +138,16 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
         viewHolder.tvName.setText(tweet.getUser().getName());
         viewHolder.tvUsername.setText("@" + tweet.getUser().getScreenName());
         viewHolder.ivProfileImage.setImageResource(android.R.color.transparent);
+
+        viewHolder.ivProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), ProfileActivity.class);
+                i.putExtra("uid", tweet.getUser().getUid());
+                getContext().startActivity(i);
+            }
+        });
+
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(viewHolder.ivProfileImage);
 
         if (tweet.getRetweetCount() > 0) {

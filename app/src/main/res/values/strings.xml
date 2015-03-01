@@ -8,5 +8,23 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_detail">Tweet</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="following">FOLLOWING</string>
+    <string name="tweets">TWEETS</string>
+    <string name="followers">FOLLOWERS</string>
+    <string name="profile_content">Profile Image</string>
+    <string name="compose">Compose</string>
+    <string name="profile">Profile</string>
+    <string name="retweet_image">Retweet Image</string>
+    <string name="retweeter">Retweeter</string>
+    <string name="user_name">Name</string>
+    <string name="username">Username</string>
+    <string name="body">Body</string>
+    <string name="retweet_content">Retweet</string>
+    <string name="favorite_content">Favorite</string>
+    <string name="char_count">140</string>
+    <string name="tweet">Tweet</string>
+    <string name="retweets">RETWEETS</string>
+    <string name="favorites">FAVORITES</string>
 
 </resources>

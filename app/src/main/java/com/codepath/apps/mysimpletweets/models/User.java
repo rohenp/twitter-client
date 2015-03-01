@@ -27,6 +27,18 @@ public class User extends Model implements Parcelable {
     @Column(name = "profile_image_url")
     private String profileImageUrl;
 
+    @Column(name = "following_count")
+    private long followingCount;
+
+    @Column(name = "followers_count")
+    private long followersCount;
+
+    @Column(name = "tweets_count")
+    private long tweetsCount;
+
+    @Column(name = "description")
+    private String description;
+
     public String getProfileImageUrl() {
         if (profileImageUrl.length() > 0) {
             String filetype = profileImageUrl.substring(profileImageUrl.lastIndexOf('.') + 1);
@@ -48,6 +60,22 @@ public class User extends Model implements Parcelable {
         return screenName;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public long getFollowingCount() {
+        return followingCount;
+    }
+
+    public long getFollowersCount() {
+        return followersCount;
+    }
+
+    public long getTweetsCount() {
+        return tweetsCount;
+    }
+
     public static User fromJSON(JSONObject jsonObject) {
         User user = new User();
 
@@ -56,6 +84,10 @@ public class User extends Model implements Parcelable {
             user.screenName = jsonObject.getString("screen_name");
             user.profileImageUrl = jsonObject.getString("profile_image_url");
             user.name = jsonObject.getString("name");
+            user.followersCount = jsonObject.getLong("followers_count");
+            user.tweetsCount = jsonObject.getLong("statuses_count");
+            user.followingCount = jsonObject.getLong("friends_count");
+            user.description = jsonObject.getString("description");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -76,6 +108,10 @@ public class User extends Model implements Parcelable {
         out.writeString(name);
         out.writeString(screenName);
         out.writeString(profileImageUrl);
+        out.writeLong(followersCount);
+        out.writeLong(followingCount);
+        out.writeLong(tweetsCount);
+        out.writeString(description);
     }
 
     public static final Parcelable.Creator<User> CREATOR
@@ -96,6 +132,10 @@ public class User extends Model implements Parcelable {
         name = in.readString();
         screenName = in.readString();
         profileImageUrl = in.readString();
+        followersCount = in.readLong();
+        followingCount = in.readLong();
+        tweetsCount = in.readLong();
+        description = in.readString();
     }
 
     public User() {

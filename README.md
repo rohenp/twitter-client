@@ -16,9 +16,18 @@ Completed user stories:
 * [x] Required: User can then enter a new tweet and post this to twitter
 * [x] Required: User is taken back to home timeline with new tweet visible in timeline
 * [x] Optional: User can see a counter with total number of characters left for tweet
+* [x] Required: User can switch between Timeline and Mention views using tabs.
+* [x] Required: User can view their home timeline tweets.
+* [x] Required: User can view the recent mentions of their username.
+* [x] Required: User can navigate to view their own profile
+* [x] Required: User can see picture, tagline, # of followers, # of following, and tweets on their profile.
+* [x] Required: User can click on the profile image in any tweet to see another user's profile.
+* [x] Required: User can see picture, tagline, # of followers, # of following, and tweets of clicked user.
+* [x] Required: Profile view should include that user's timeline
+* [x] Required: User can infinitely paginate any of these timelines (home, mentions, user) by scrolling to the bottom
 
 The following advanced user stories are optional:
-
+* [x] Advanced: Robust error handling, check if internet is available, handle error cases, network failures
 * [x] Advanced: User can refresh tweets timeline by pulling down to refresh (i.e pull-to-refresh)
 * [x] Advanced: User can open the twitter app offline and see last loaded tweets
 * [x] Advanced: Tweets are persisted into sqlite and can be displayed from the local DB

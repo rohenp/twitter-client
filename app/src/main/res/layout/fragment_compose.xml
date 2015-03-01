@@ -4,7 +4,7 @@
     android:background="#FFFFFF">
 
     <ImageView
-        android:contentDescription="Profile Image"
+        android:contentDescription="@string/profile_content"
         android:id="@+id/ivProfileImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -40,7 +40,7 @@
         android:gravity="end"
         android:layout_height="wrap_content"
         android:id="@+id/tvCharacterCount"
-        android:text="140"
+        android:text="@string/char_count"
         android:textSize="12sp"
         android:layout_toRightOf="@+id/tvName"
         android:layout_toEndOf="@+id/tvName"
@@ -52,7 +52,7 @@
         android:layout_height="30dp"
         android:id="@+id/btTweet"
         android:textAllCaps="false"
-        android:text="Tweet"
+        android:text="@string/tweet"
         android:layout_marginLeft="10dp"
         android:background="#55ACEE"
         android:textColor="#FFFFFF"

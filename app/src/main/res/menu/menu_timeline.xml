@@ -6,6 +6,12 @@
         android:id="@+id/miCompose"
         android:icon="@drawable/ic_compose"
         app:showAsAction="always"
-        android:title="Compose">
+        android:title="@string/compose">
+    </item>
+    <item
+        android:id="@+id/miProfile"
+        android:icon="@drawable/ic_profile"
+        app:showAsAction="always"
+        android:title="@string/profile">
     </item>
 </menu>

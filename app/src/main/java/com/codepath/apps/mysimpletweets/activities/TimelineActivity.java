@@ -4,46 +4,39 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.view.ViewGroup;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.codepath.apps.mysimpletweets.R;
 import com.codepath.apps.mysimpletweets.TwitterApplication;
 import com.codepath.apps.mysimpletweets.TwitterClient;
-import com.codepath.apps.mysimpletweets.adapters.TweetsArrayAdapter;
 import com.codepath.apps.mysimpletweets.fragments.ComposeDialog;
 import com.codepath.apps.mysimpletweets.fragments.CustomAlertDialogFragment;
-import com.codepath.apps.mysimpletweets.listeners.EndlessScrollListener;
+import com.codepath.apps.mysimpletweets.fragments.HomeTimelineFragment;
+import com.codepath.apps.mysimpletweets.fragments.MentionsTimelineFragment;
 import com.codepath.apps.mysimpletweets.models.Tweet;
 import com.codepath.apps.mysimpletweets.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class TimelineActivity extends ActionBarActivity implements ComposeDialog.ComposeDialogListener,
-        CustomAlertDialogFragment.CustomAlertListener {
-
+public class TimelineActivity extends ActionBarActivity implements ComposeDialog.ComposeDialogListener, CustomAlertDialogFragment.CustomAlertListener {
     private TwitterClient client;
-    private ArrayList<Tweet> tweets;
-    private TweetsArrayAdapter aTweets;
-    private ListView lvTweets;
-    private long highestUid = 0;
-    private SwipeRefreshLayout swipeContainer;
     private User currentUser = null;
     private boolean dialogShowable = true;
+    private TweetsPagerAdapter viewPagerAdapter;
 
     @Override
     public void onFinishComposeDialog(String body) {
@@ -59,87 +52,14 @@ public class TimelineActivity extends ActionBarActivity implements ComposeDialog
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bird);
 
-        setupViews();
-
-        tweets = new ArrayList<>();
-        aTweets = new TweetsArrayAdapter(this, tweets);
-        lvTweets.setAdapter(aTweets);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPagerAdapter = new TweetsPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(viewPagerAdapter);
+        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        tabs.setViewPager(viewPager);
 
         client = TwitterApplication.getRestClient();
         setCurrentUser();
-
-        setupSwipeRefresh();
-        populateTimeline();
-    }
-
-    private void setupViews() {
-        lvTweets = (ListView) findViewById(R.id.lvTweets);
-
-        lvTweets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(TimelineActivity.this, DetailActivity.class);
-                i.putExtra("tweet", tweets.get(position));
-                startActivity(i);
-            }
-        });
-
-        lvTweets.setOnScrollListener(new EndlessScrollListener() {
-            @Override
-            public void onLoadMore(int page, int totalItemsCount) {
-                populateTimeline();
-            }
-        });
-    }
-
-    private void setupSwipeRefresh() {
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
-        // Setup refresh listener which triggers new data loading
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                // Your code to refresh the list here.
-                // Make sure you call swipeContainer.setRefreshing(false)
-                // once the network request has completed successfully.
-                highestUid = 0;
-                tweets.clear();
-                populateTimeline();
-            }
-        });
-        // Configure the refreshing colors
-        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
-    }
-
-    @SuppressWarnings("unchecked")
-    private void populateTimeline() {
-        if (!isNetworkAvailable()) {
-            List dbTweets = Tweet.getItems(highestUid, 25);
-            aTweets.addAll(dbTweets);
-            if (tweets.size() > 1) {
-                highestUid = tweets.get(tweets.size() - 1).getUid() - 1;
-            }
-            swipeContainer.setRefreshing(false);
-
-            showAlertDialog("No Internet connection", "Internet access is required to update the timeline.");
-        }
-
-        client.getHomeTimeline(highestUid, new JsonHttpResponseHandler() {
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                aTweets.addAll(Tweet.fromJSONArray(response));
-                swipeContainer.setRefreshing(false);
-                highestUid = tweets.get(tweets.size() - 1).getUid() - 1;
-            }
-
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-            }
-        });
     }
 
     private void setCurrentUser() {
@@ -149,7 +69,6 @@ public class TimelineActivity extends ActionBarActivity implements ComposeDialog
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 currentUser = User.fromJSON(response);
             }
-
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
@@ -173,12 +92,13 @@ public class TimelineActivity extends ActionBarActivity implements ComposeDialog
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                aTweets.insert(Tweet.fromJSON(response), 0);
+                HomeTimelineFragment homeTimelineFragment = (HomeTimelineFragment) viewPagerAdapter.getRegisteredFragment(0);
+                homeTimelineFragment.insertTweet(Tweet.fromJSON(response), 0);
             }
-
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                showAlertDialog("Unable to post tweet", "A problem was encountered while trying to post your tweet.");
             }
         });
 
@@ -201,9 +121,18 @@ public class TimelineActivity extends ActionBarActivity implements ComposeDialog
             case R.id.miCompose:
                 composeMessage();
                 return true;
+            case R.id.miProfile:
+                profileView(currentUser);
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void profileView(User user) {
+        Intent i = new Intent(this, ProfileActivity.class);
+        i.putExtra("uid", user.getUid());
+        startActivity(i);
     }
 
     private void composeMessage() {
@@ -238,6 +167,47 @@ public class TimelineActivity extends ActionBarActivity implements ComposeDialog
         FragmentManager fm = getSupportFragmentManager();
         CustomAlertDialogFragment alertDialog = CustomAlertDialogFragment.newInstance(title, message);
         alertDialog.show(fm, "fragment_alert");
+    }
+
+    public class TweetsPagerAdapter extends FragmentPagerAdapter {
+        private String tabTitles[] = { "Home", "Mentions" };
+        SparseArray<Fragment> registeredFragments = new SparseArray<>();
+
+        public TweetsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            if (position == 0) {
+                return new HomeTimelineFragment();
+            } else if (position == 1) {
+                return new MentionsTimelineFragment();
+            }
+
+            return null;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            Fragment fragment = (Fragment) super.instantiateItem(container, position);
+            registeredFragments.put(position, fragment);
+            return fragment;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return tabTitles[position];
+        }
+
+        @Override
+        public int getCount() {
+            return tabTitles.length;
+        }
+
+        public Fragment getRegisteredFragment(int position) {
+            return registeredFragments.get(position);
+        }
     }
 
     @Override

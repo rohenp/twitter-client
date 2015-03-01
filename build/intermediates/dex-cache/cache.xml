@@ -16,11 +16,25 @@
         <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/codepath-oauth-0.4.1-500f237f656b7f6d7a2e05c3744d5f5094451ffc.jar" />
     </item>
     <item
+        jar="/Users/rohen/Code/twitter_client/app/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/classes-04c1601ba4c556efde90f24db7e0555cb2601dd9.jar" />
+    </item>
+    <item
         jar="/Users/rohen/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.4.0/f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2/picasso-2.4.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
         <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/picasso-2.4.0-7a653381be9ce78607fc6fde1d229a661aada59a.jar" />
+    </item>
+    <item
+        jar="/Users/rohen/Code/twitter_client/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/classes-f24c0186baca04e8f4c77aae46031f07b2ce4a15.jar" />
     </item>
     <item
         jar="/Users/rohen/Code/twitter_client/app/libs/codepath-utils.jar"
@@ -35,13 +49,6 @@
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
         <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/classes-d1798c339151d03775927b9ce639f1f24025c702.jar" />
-    </item>
-    <item
-        jar="/Users/rohen/Code/twitter_client/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
-        <dex dex="/Users/rohen/Code/twitter_client/app/build/intermediates/pre-dexed/debug/classes-db435a79e6b5a2698167753ec7d0689402094fe0.jar" />
     </item>
     <item
         jar="/Users/rohen/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
