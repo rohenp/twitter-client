@@ -50,7 +50,7 @@ public class DetailActivity extends ActionBarActivity {
         ImageView ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
         TextView tvRetweeter = (TextView) findViewById(R.id.tvRetweeter);
 
-        tvBody.setText(tweet.getBody());
+        tvBody.setText(Html.fromHtml(tweet.getBody()));
         tvUsername.setText("@" + tweet.getUser().getScreenName());
 
         tvName.setText(tweet.getUser().getName());

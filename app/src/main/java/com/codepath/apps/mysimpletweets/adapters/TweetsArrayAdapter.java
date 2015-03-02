@@ -2,6 +2,7 @@ package com.codepath.apps.mysimpletweets.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -134,7 +135,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
             viewHolder.tvRetweeter.setVisibility(View.GONE);
             viewHolder.ivRetweetTop.setVisibility(View.GONE);
         }
-        viewHolder.tvBody.setText(tweet.getBody());
+        viewHolder.tvBody.setText(Html.fromHtml(tweet.getBody()));
         viewHolder.tvName.setText(tweet.getUser().getName());
         viewHolder.tvUsername.setText("@" + tweet.getUser().getScreenName());
         viewHolder.ivProfileImage.setImageResource(android.R.color.transparent);
