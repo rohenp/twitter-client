@@ -36,8 +36,12 @@ The following advanced user stories are optional:
 * [x] Bonus: Compose activity is replaced with a modal overlay
 
 
-Walkthrough of all user stories:
+Walkthrough of original user stories:
 
 ![Video Walkthrough](walkthrough.gif)
+
+Walkthrough of new user stories:
+
+![Video Walkthrough](walkthrough2.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).

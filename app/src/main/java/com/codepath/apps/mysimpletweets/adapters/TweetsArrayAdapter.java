@@ -97,7 +97,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
             } else if (timeDiff < day) {
                 resolution = DateUtils.HOUR_IN_MILLIS;
                 resolutionString = "h";
-            } else if (timeDiff < 14 * day) {
+            } else if (timeDiff < 7 * day) {
                 resolution = DateUtils.DAY_IN_MILLIS;
                 resolutionString = "d";
             } else {
