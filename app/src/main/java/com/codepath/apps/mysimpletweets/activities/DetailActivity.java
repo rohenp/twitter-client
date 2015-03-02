@@ -1,5 +1,6 @@
 package com.codepath.apps.mysimpletweets.activities;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -55,6 +56,15 @@ public class DetailActivity extends ActionBarActivity {
         tvName.setText(tweet.getUser().getName());
 
         Picasso.with(getApplicationContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
+
+        ivProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DetailActivity.this, ProfileActivity.class);
+                i.putExtra("uid", tweet.getUser().getUid());
+                startActivity(i);
+            }
+        });
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZZ yyyy", Locale.US);
         SimpleDateFormat outFormat = new SimpleDateFormat("hh:mm a \u00B7 dd MMM yy", Locale.US);

@@ -365,7 +365,7 @@ int id action_menu_presenter 0x7f080003
 int id action_mode_bar 0x7f08002e
 int id action_mode_bar_stub 0x7f08002d
 int id action_mode_close_button 0x7f080020
-int id action_settings 0x7f08005a
+int id action_settings 0x7f080058
 int id activity_chooser_view_content 0x7f080021
 int id always 0x7f080016
 int id beginning 0x7f080013
@@ -396,15 +396,14 @@ int id ivRetweetTop 0x7f080041
 int id listMode 0x7f080009
 int id list_item 0x7f080025
 int id lvTweets 0x7f080057
-int id miCompose 0x7f08005b
-int id miProfile 0x7f08005c
+int id miCompose 0x7f080059
+int id miProfile 0x7f08005a
 int id middle 0x7f080015
 int id never 0x7f080019
 int id none 0x7f08000e
 int id normal 0x7f08000a
 int id progress_circular 0x7f080005
 int id progress_horizontal 0x7f080006
-int id progress_spinner 0x7f080059
 int id radio 0x7f08002b
 int id rlUserHeader 0x7f08004b
 int id search_badge 0x7f080035
@@ -427,7 +426,6 @@ int id swipeContainer 0x7f080056
 int id tabMode 0x7f08000b
 int id tabs 0x7f080051
 int id title 0x7f080027
-int id toolbar 0x7f080058
 int id tvBody 0x7f080044
 int id tvCharacterCount 0x7f080053
 int id tvFavorites 0x7f080048
@@ -477,7 +475,6 @@ int layout fragment_compose 0x7f03001b
 int layout fragment_tweets_list 0x7f03001c
 int layout item_tweet 0x7f03001d
 int layout support_simple_spinner_dropdown_item 0x7f03001e
-int layout toolbar 0x7f03001f
 int menu login 0x7f0c0000
 int menu menu_detail 0x7f0c0001
 int menu menu_profile 0x7f0c0002
